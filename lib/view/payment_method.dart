@@ -1,60 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:sambapos_desktop/model/contextExtension.dart';
-import 'package:sambapos_desktop/view/payment_method.dart';
 
-class FirstPageUi extends StatefulWidget {
+class PaymentMethod extends StatefulWidget {
+  PaymentMethod({Key key}) : super(key: key);
+
   @override
-  _FirstPageUiState createState() => _FirstPageUiState();
+  _PaymentMethodState createState() => _PaymentMethodState();
 }
 
-class _FirstPageUiState extends State<FirstPageUi> {
+class _PaymentMethodState extends State<PaymentMethod> {
   final buttonColor = Colors.white;
-  final textTop = "Dine In or Take Out ?";
-  final textleftButton = "DINE IN";
-  final textrightButton = "TAKE OUT";
+  final textTop = "Select Your Payment Method";
+  final textleftButton = "CASH";
+  final textmidButton = "CREDIT CARD";
+  final textrightButton = "WAMO QR";
   final resim =
-      "https://cdn.yemek.com/mncrop/940/625/uploads/2016/05/ev-yapimi-hamburger.jpg";
+      "https://i4.hurimg.com/i/hurriyet/75/750x422/5eca5464d3806c225429d41f.jpg";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.grey,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.language,
-                color: Colors.grey,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.settings,
-                color: Colors.grey,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.power_settings_new,
-                color: Colors.grey,
-              ),
-              label: '',
-            ),
-          ],
-        ),
         //backgroundColor: Colors.blueGrey,
-        // bottomNavigationBar: MyStatefulWidget(),
+
         body: DecoratedBox(
           decoration: BoxDecoration(
               image: DecorationImage(
@@ -73,32 +41,22 @@ class _FirstPageUiState extends State<FirstPageUi> {
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return PaymentMethod();
-                                }),
-                              );
-                            },
+                            onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               primary: buttonColor,
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: context.paddingAllow,
                               child: Column(
                                 children: [
                                   Icon(
-                                    Icons.restaurant,
+                                    Icons.local_atm,
                                     color: Colors.black,
                                   ),
                                   Text(
                                     textleftButton,
                                     style: TextStyle(color: Colors.black),
-                                  ),
-                                  SizedBox(
-                                    height: context.dynamicHeight(0.01),
-                                  ),
+                                  )
                                 ],
                               ),
                             )),
@@ -108,32 +66,47 @@ class _FirstPageUiState extends State<FirstPageUi> {
                       ),
                       Expanded(
                         child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return PaymentMethod();
-                                }),
-                              );
-                            },
+                            onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               primary: buttonColor,
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: context.paddingAllow,
                               child: Column(
                                 children: [
                                   Icon(
-                                    Icons.shopping_bag,
+                                    Icons.credit_card,
+                                    color: Colors.black,
+                                  ),
+                                  Text(
+                                    textmidButton,
+                                    style: TextStyle(color: Colors.black),
+                                  )
+                                ],
+                              ),
+                            )),
+                      ),
+                      SizedBox(
+                        width: context.dynamicWidth(0.01),
+                      ),
+                      Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              primary: buttonColor,
+                            ),
+                            child: Padding(
+                              padding: context.paddingAllow,
+                              child: Column(
+                                children: [
+                                  Icon(
+                                    Icons.qr_code,
                                     color: Colors.black,
                                   ),
                                   Text(
                                     textrightButton,
                                     style: TextStyle(color: Colors.black),
-                                  ),
-                                  SizedBox(
-                                    height: context.dynamicHeight(0.01),
-                                  ),
+                                  )
                                 ],
                               ),
                             )),
