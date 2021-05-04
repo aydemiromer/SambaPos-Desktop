@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sambapos_desktop/model/contextExtension.dart';
+import 'package:sambapos_desktop/view/view.dart';
+import 'package:sambapos_desktop/widgets/elevated_button.dart';
 
 class PaymentMethod extends StatefulWidget {
   PaymentMethod({Key key}) : super(key: key);
@@ -9,6 +11,8 @@ class PaymentMethod extends StatefulWidget {
 }
 
 class _PaymentMethodState extends State<PaymentMethod> {
+  int _selectedIndex = 0;
+
   final buttonColor = Colors.white;
   final textTop = "Select Your Payment Method";
   final textleftButton = "CASH";
@@ -21,8 +25,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        //backgroundColor: Colors.blueGrey,
-
+        bottomNavigationBar: bottomNavbar(),
         body: DecoratedBox(
           decoration: BoxDecoration(
               image: DecorationImage(
@@ -34,91 +37,76 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 Text(textTop,
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
-                Padding(
-                  padding: context.paddingAllow,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              primary: buttonColor,
-                            ),
-                            child: Padding(
-                              padding: context.paddingAllow,
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.local_atm,
-                                    color: Colors.black,
-                                  ),
-                                  Text(
-                                    textleftButton,
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
-                              ),
-                            )),
-                      ),
-                      SizedBox(
-                        width: context.dynamicWidth(0.01),
-                      ),
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              primary: buttonColor,
-                            ),
-                            child: Padding(
-                              padding: context.paddingAllow,
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.credit_card,
-                                    color: Colors.black,
-                                  ),
-                                  Text(
-                                    textmidButton,
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
-                              ),
-                            )),
-                      ),
-                      SizedBox(
-                        width: context.dynamicWidth(0.01),
-                      ),
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              primary: buttonColor,
-                            ),
-                            child: Padding(
-                              padding: context.paddingAllow,
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.qr_code,
-                                    color: Colors.black,
-                                  ),
-                                  Text(
-                                    textrightButton,
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
-                              ),
-                            )),
-                      ),
-                    ],
-                  ),
-                )
+                buttonGroup(context)
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Padding buttonGroup(BuildContext context) {
+    return Padding(
+      padding: context.paddingAllow,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ExpandedButton(
+              onpressed: null,
+              icon: Icons.payment,
+              buttonColor: buttonColor,
+              textPosition: textleftButton),
+          SizedBox(
+            width: context.dynamicWidth(0.01),
+          ),
+          ExpandedButton(
+              onpressed: null,
+              buttonColor: buttonColor,
+              textPosition: textmidButton,
+              icon: Icons.credit_card),
+          SizedBox(
+            width: context.dynamicWidth(0.01),
+          ),
+          ExpandedButton(
+              onpressed: null,
+              buttonColor: buttonColor,
+              textPosition: textrightButton,
+              icon: Icons.qr_code),
+        ],
+      ),
+    );
+  }
+
+  BottomNavigationBar bottomNavbar() {
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.language,
+          ),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.power_settings_new),
+          label: '',
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.grey,
+      unselectedItemColor: Colors.grey,
+      onTap: (int index) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => FirstPageUi()));
+      },
     );
   }
 }
