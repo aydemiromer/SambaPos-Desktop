@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sambapos_desktop/model/contextExtension.dart';
 import 'package:sambapos_desktop/view/view.dart';
 import 'package:sambapos_desktop/widgets/elevated_button.dart';
+import 'package:sambapos_desktop/widgets/navbar_second.dart';
+import 'package:sambapos_desktop/init/extensions/string_extensions.dart';
+import 'package:sambapos_desktop/init/locale_keys.g.dart';
 
 class PaymentMethod extends StatefulWidget {
   PaymentMethod({Key key}) : super(key: key);
@@ -11,13 +14,19 @@ class PaymentMethod extends StatefulWidget {
 }
 
 class _PaymentMethodState extends State<PaymentMethod> {
-  int _selectedIndex = 0;
+  /*int _selectedIndex = 0;
+  final List<Widget> _children = [];
+  void onTappedBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }*/
 
   final buttonColor = Colors.white;
-  final textTop = "Select Your Payment Method";
+  /*final textTop = "Select Your Payment Method";
   final textleftButton = "CASH";
   final textmidButton = "CREDIT CARD";
-  final textrightButton = "WAMO QR";
+  final textrightButton = "WAMO QR";*/
   final resim =
       "https://i4.hurimg.com/i/hurriyet/75/750x422/5eca5464d3806c225429d41f.jpg";
   @override
@@ -25,7 +34,9 @@ class _PaymentMethodState extends State<PaymentMethod> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        bottomNavigationBar: bottomNavbar(),
+        bottomNavigationBar: MySecondBottomNavbar(
+          onpressedNavbar: FirstPageUi(),
+        ),
         body: DecoratedBox(
           decoration: BoxDecoration(
               image: DecorationImage(
@@ -34,7 +45,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(textTop,
+                Text(LocaleKeys.paymenttype_pagetitle.locale,
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                 buttonGroup(context)
@@ -53,17 +64,18 @@ class _PaymentMethodState extends State<PaymentMethod> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ExpandedButton(
-              onpressed: null,
-              icon: Icons.payment,
-              buttonColor: buttonColor,
-              textPosition: textleftButton),
+            onpressed: null,
+            icon: Icons.payment,
+            buttonColor: buttonColor,
+            textPosition: LocaleKeys.paymenttype_pagebuttonleft.locale,
+          ),
           SizedBox(
             width: context.dynamicWidth(0.01),
           ),
           ExpandedButton(
               onpressed: null,
               buttonColor: buttonColor,
-              textPosition: textmidButton,
+              textPosition: LocaleKeys.paymenttype_pagebuttonmid.locale,
               icon: Icons.credit_card),
           SizedBox(
             width: context.dynamicWidth(0.01),
@@ -71,14 +83,14 @@ class _PaymentMethodState extends State<PaymentMethod> {
           ExpandedButton(
               onpressed: null,
               buttonColor: buttonColor,
-              textPosition: textrightButton,
+              textPosition: LocaleKeys.paymenttype_pagebuttonright.locale,
               icon: Icons.qr_code),
         ],
       ),
     );
   }
-
-  BottomNavigationBar bottomNavbar() {
+}
+ /* BottomNavigationBar bottomNavbar() {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -109,4 +121,4 @@ class _PaymentMethodState extends State<PaymentMethod> {
       },
     );
   }
-}
+}*/

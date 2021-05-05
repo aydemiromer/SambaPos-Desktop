@@ -1,0 +1,13 @@
+{
+    "view": {
+        "pagetitle": "How would you like to receive your order ?",
+        "pagebuttonleft": "RESTAURANT",
+        "pagebuttonright": "TAKE AWAY"
+    },
+    "paymenttype": {
+        "pagetitle": "Select Your Payment Method ",
+        "pagebuttonleft": "CASH",
+        "pagebuttonmid": "CREDIT CARD",
+        "pagebuttonright": "WAMO QR"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "view": {
+        "pagetitle": "Siparişinizi nasıl almak istersiniz?",
+        "pagebuttonleft": "RESTORANT",
+        "pagebuttonright": "AL GÖTÜR"
+    },
+    "paymenttype": {
+        "pagetitle": "Ödeme Yöntemini Seçiniz ",
+        "pagebuttonleft": "NAKİT",
+        "pagebuttonmid": "KREDİ KARTI",
+        "pagebuttonright": "QR KOD"
+    }
+}

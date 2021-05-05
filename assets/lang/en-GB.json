@@ -1,0 +1,13 @@
+{
+    "view": {
+        "pagetitle": "Take Out or Dine In ?",
+        "pagebuttonleft": "DINE IN",
+        "pagebuttonright": "TAKE OUT"
+    },
+    "paymenttype": {
+        "pagetitle": "Select Your Payment Method ",
+        "pagebuttonleft": "CASH",
+        "pagebuttonmid": "CREDIT CARD",
+        "pagebuttonright": "WAMO QR"
+    }
+}
