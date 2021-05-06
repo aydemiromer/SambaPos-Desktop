@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:sambapos_desktop/constant/constants.dart';
 import 'package:sambapos_desktop/view/view.dart';
@@ -30,12 +29,24 @@ class MyFirstBottomNavbar extends StatelessWidget {
                 color: Colors.grey,
               ),
               onPressed: () {
-                context.locale = AppConstant.SUPPORTED_LOCALE[
-                    Random().nextInt(AppConstant.SUPPORTED_LOCALE.length)];
+                /*context.locale = AppConstant.SUPPORTED_LOCALE[
+                    Random().nextInt(AppConstant.SUPPORTED_LOCALE.length)];*/
+                context.locale = AppConstant.EN_LOCALE;
               }),
-          IconButton(icon: Icon(Icons.fullscreen_exit), onPressed: null),
+          IconButton(
+              icon: Icon(Icons.fullscreen_exit),
+              onPressed: () {
+                context.locale = AppConstant.TR_LOCALE;
+              }),
           IconButton(icon: Icon(Icons.settings), onPressed: null),
-          IconButton(icon: Icon(Icons.power_settings_new), onPressed: null),
+          IconButton(
+              icon: Icon(
+                Icons.power_settings_new,
+                color: Colors.grey,
+              ),
+              onPressed: () {
+                exit(0);
+              }),
         ],
       ),
     );

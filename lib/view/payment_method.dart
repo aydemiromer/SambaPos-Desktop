@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sambapos_desktop/model/contextExtension.dart';
+import 'package:sambapos_desktop/view/products.dart';
 import 'package:sambapos_desktop/view/view.dart';
 import 'package:sambapos_desktop/widgets/elevated_button.dart';
-import 'package:sambapos_desktop/widgets/navbar_second.dart';
 import 'package:sambapos_desktop/init/extensions/string_extensions.dart';
 import 'package:sambapos_desktop/init/locale_keys.g.dart';
+import 'dart:io';
+import 'package:sambapos_desktop/constant/constants.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class PaymentMethod extends StatefulWidget {
   PaymentMethod({Key key}) : super(key: key);
@@ -14,19 +17,7 @@ class PaymentMethod extends StatefulWidget {
 }
 
 class _PaymentMethodState extends State<PaymentMethod> {
-  /*int _selectedIndex = 0;
-  final List<Widget> _children = [];
-  void onTappedBar(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }*/
-
   final buttonColor = Colors.white;
-  /*final textTop = "Select Your Payment Method";
-  final textleftButton = "CASH";
-  final textmidButton = "CREDIT CARD";
-  final textrightButton = "WAMO QR";*/
   final resim =
       "https://i4.hurimg.com/i/hurriyet/75/750x422/5eca5464d3806c225429d41f.jpg";
   @override
@@ -34,9 +25,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        bottomNavigationBar: MySecondBottomNavbar(
+        /* bottomNavigationBar: MySecondBottomNavbar(
           onpressedNavbar: FirstPageUi(),
-        ),
+        ),*/
+        bottomNavigationBar: MyFirstBottomNavbar(),
         body: DecoratedBox(
           decoration: BoxDecoration(
               image: DecorationImage(
@@ -64,7 +56,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ExpandedButton(
-            onpressed: null,
+            onpressed: Products(),
             icon: Icons.payment,
             buttonColor: buttonColor,
             textPosition: LocaleKeys.paymenttype_pagebuttonleft.locale,
@@ -73,7 +65,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
             width: context.dynamicWidth(0.01),
           ),
           ExpandedButton(
-              onpressed: null,
+              onpressed: Products(),
               buttonColor: buttonColor,
               textPosition: LocaleKeys.paymenttype_pagebuttonmid.locale,
               icon: Icons.credit_card),
@@ -81,7 +73,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
             width: context.dynamicWidth(0.01),
           ),
           ExpandedButton(
-              onpressed: null,
+              onpressed: Products(),
               buttonColor: buttonColor,
               textPosition: LocaleKeys.paymenttype_pagebuttonright.locale,
               icon: Icons.qr_code),
@@ -90,35 +82,101 @@ class _PaymentMethodState extends State<PaymentMethod> {
     );
   }
 }
- /* BottomNavigationBar bottomNavbar() {
-    return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.language,
-          ),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.power_settings_new),
-          label: '',
-        ),
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: Colors.grey,
-      unselectedItemColor: Colors.grey,
-      onTap: (int index) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => FirstPageUi()));
-      },
+
+class MyFirstBottomNavbar extends StatelessWidget {
+  const MyFirstBottomNavbar({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.grey,
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => FirstPageUi()));
+              }),
+          IconButton(
+              icon: Icon(
+                Icons.home,
+                color: Colors.grey,
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => FirstPageUi()));
+              }),
+          IconButton(
+              icon: Icon(
+                Icons.language,
+                color: Colors.grey,
+              ),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      actions: [
+                        ElevatedButton(
+                            onPressed: () {
+                              context.locale = AppConstant.GB_LOCALE;
+                            },
+                            child: Column(
+                              children: [
+                                Icon(Icons.language),
+                                Text("EN-UK"),
+                              ],
+                            )),
+                        ElevatedButton(
+                            onPressed: () {
+                              context.locale = AppConstant.EN_LOCALE;
+                            },
+                            child: Column(
+                              children: [
+                                Icon(Icons.language),
+                                Text("EN-US"),
+                              ],
+                            )),
+                        ElevatedButton(
+                            onPressed: () {
+                              context.locale = AppConstant.TR_LOCALE;
+                            },
+                            child: Column(
+                              children: [
+                                Icon(Icons.language),
+                                Text("TR"),
+                              ],
+                            )),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PaymentMethod()));
+                            },
+                            child: Text("Ok"))
+                      ],
+                    );
+                  },
+                );
+              }),
+          IconButton(icon: Icon(Icons.fullscreen_exit), onPressed: () {}),
+          IconButton(icon: Icon(Icons.settings), onPressed: null),
+          IconButton(
+              icon: Icon(
+                Icons.power_settings_new,
+                color: Colors.grey,
+              ),
+              onPressed: () {
+                exit(0);
+              }),
+        ],
+      ),
     );
   }
-}*/
+}

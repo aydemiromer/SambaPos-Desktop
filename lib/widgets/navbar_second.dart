@@ -41,6 +41,7 @@ class MySecondBottomNavbar extends StatelessWidget {
                 color: Colors.grey,
               ),
               onPressed: () {
+                
                 context.locale = AppConstant.SUPPORTED_LOCALE[
                     Random().nextInt(AppConstant.SUPPORTED_LOCALE.length)];
               }),
