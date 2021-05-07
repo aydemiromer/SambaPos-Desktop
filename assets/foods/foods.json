@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Cheese Burger Combo",
+        "photo": "https://www.diyetasistan.com/files/besinler/cheeseburger-menu-kac-kalori.jpg",
+        "price": "28.00",
+        "category": "Combos"
+    },
+    {
+        "name": "Wrap Combo",
+        "photo": "https://www.bambicafe.com.tr/picture450x300/-20200512091605.jpeg",
+        "price": "24.00",
+        "category": "Combos"
+    },
+    {
+        "name": "Chicken Combo",
+        "photo": "https://kfcturkiye.com/uploads/images/home-categories/lezzet-kutulari.jpg?v=2",
+        "price": "26.00",
+        "category": "Combos"
+    },
+    {
+        "name": "Cheese Burger",
+        "photo": "http://golcukvizyongazetesi.com/wp-content/uploads/2018/02/IMG_5586.jpg",
+        "price": "18.00",
+        "category": "Burgers"
+    },
+    {
+        "name": "Burger",
+        "photo": "https://www.foodtime.com.tr/images/haberler/dunya_hamburger_gunu_izgara_atesiyle_kutlanacak_h5870.jpg",
+        "price": "13.00",
+        "category": "Burgers"
+    },
+    {
+        "name": "Big Mac",
+        "photo": "https://i.sozcu.com.tr/wp-content/uploads/2016/12/ph32hp11hp312hp3.jpg",
+        "price": "15.00",
+        "category": "Burgers"
+    },
+    {
+        "name": "Bagel",
+        "photo": "https://cdn.yemek.com/mnresize/940/940/uploads/2017/11/citir-citir-ev-yapimi-sokak-simidi-tarifi.jpg",
+        "price": "5.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Butter",
+        "photo": "https://www.degisiktarifler.com/wp-content/uploads/2021/02/Sahanda-yumurta-tarifi-nasil-yapilir.jpg",
+        "price": "8.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Sausage",
+        "photo": "http://www.ugurlulezzetler.com/content/tarifler/1368/828973135_bcS6fh2FKusnRCULAZqCabkHNSDPC3y7RfotlmCo9r6YB.jpg",
+        "price": "10.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Rainbow",
+        "photo": "https://funcakes.com/content/uploads/2020/03/Rainbow_Surprise_Cake-960x960-c-default.jpg",
+        "price": "20.00",
+        "category": "Desserts"
+    },
+    {
+        "name": "Chocolate Cake",
+        "photo": "https://www.cookingclassy.com/wp-content/uploads/2019/10/chocolate-cake-3.jpg",
+        "price": "10.00",
+        "category": "Desserts"
+    },
+    {
+        "name": "SanSebastian Cheescake",
+        "photo": "https://i.pinimg.com/originals/8d/e7/6e/8de76eddd0aeac4d468774acf0d031b9.jpg",
+        "price": "25.00",
+        "category": "Desserts"
+    }
+]
