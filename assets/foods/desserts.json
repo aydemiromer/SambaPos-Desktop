@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Rainbow",
+        "photo": "https://funcakes.com/content/uploads/2020/03/Rainbow_Surprise_Cake-960x960-c-default.jpg",
+        "price": "20.00",
+        "category": "Desserts"
+    },
+    {
+        "name": "Chocolate Cake",
+        "photo": "https://www.cookingclassy.com/wp-content/uploads/2019/10/chocolate-cake-3.jpg",
+        "price": "10.00",
+        "category": "Desserts"
+    },
+    {
+        "name": "SanSebastian Cheescake",
+        "photo": "https://i.pinimg.com/originals/8d/e7/6e/8de76eddd0aeac4d468774acf0d031b9.jpg",
+        "price": "25.00",
+        "category": "Desserts"
+    }
+]

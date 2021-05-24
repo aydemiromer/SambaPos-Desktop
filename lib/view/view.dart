@@ -91,7 +91,12 @@ class MyFirstBottomNavbar extends StatelessWidget {
                   },
                 );
               }),
-          IconButton(icon: Icon(Icons.fullscreen_exit), onPressed: () {}),
+          IconButton(
+              icon: Icon(
+                Icons.fullscreen_exit,
+                color: Colors.grey,
+              ),
+              onPressed: () {}),
           IconButton(icon: Icon(Icons.settings), onPressed: null),
           IconButton(
               icon: Icon(

@@ -4,6 +4,7 @@ import 'package:sambapos_desktop/constant/constants.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:sambapos_desktop/view/payment_method.dart';
 import 'package:sambapos_desktop/view/view.dart';
+import 'package:sambapos_desktop/widgets/categories.dart';
 import 'package:sambapos_desktop/widgets/products_leftside.dart';
 import 'package:sambapos_desktop/widgets/products_rightside.dart';
 
@@ -21,7 +22,7 @@ class _ProductsState extends State<Products> {
       bottomNavigationBar: MyFirstBottomNavbar(),
       body: Row(
         children: [
-          LeftSide(),
+          Categories(),
           RightSide(),
         ],
       ),
@@ -126,3 +127,29 @@ class MyFirstBottomNavbar extends StatelessWidget {
     );
   }
 }
+/*
+final buttonColors = WindowButtonColors(
+    iconNormal: Color(0xFF805306),
+    mouseOver: Color(0xFFF6A00C),
+    mouseDown: Color(0xFF805306),
+    iconMouseOver: Color(0xFF805306),
+    iconMouseDown: Color(0xFFFFD500));
+
+final closeButtonColors = WindowButtonColors(
+    mouseOver: Color(0xFFD32F2F),
+    mouseDown: Color(0xFFB71C1C),
+    iconNormal: Color(0xFF805306),
+    iconMouseOver: Colors.white);
+
+class WindowButtons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        MinimizeWindowButton(colors: buttonColors),
+        MaximizeWindowButton(colors: buttonColors),
+        CloseWindowButton(colors: closeButtonColors),
+      ],
+    );
+  }
+}*/

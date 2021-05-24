@@ -53,8 +53,12 @@ flutter:
     - assets/lang/en-US.json
     - assets/lang/tr-TR.json
     - assets/lang/en-GB.json
-    - assets/foods/foods.json 
+    - assets/foods/foods.json
+    - assets/foods/breakfast.json
+    - assets/foods/desserts.json  
+    - assets/foods/burgers.json
     - assets/foods/categories.json 
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

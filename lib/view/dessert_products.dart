@@ -1,82 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:sambapos_desktop/model/contextExtension.dart';
-import 'package:sambapos_desktop/view/products.dart';
-import 'package:sambapos_desktop/view/view.dart';
-import 'package:sambapos_desktop/widgets/elevated_button.dart';
-import 'package:sambapos_desktop/init/extensions/string_extensions.dart';
-import 'package:sambapos_desktop/init/locale_keys.g.dart';
 import 'dart:io';
 import 'package:sambapos_desktop/constant/constants.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:sambapos_desktop/view/payment_method.dart';
+import 'package:sambapos_desktop/view/view.dart';
+import 'package:sambapos_desktop/widgets/categories.dart';
+import 'dart:convert';
+import 'package:sambapos_desktop/model/contextExtension.dart';
 
-class PaymentMethod extends StatefulWidget {
-  PaymentMethod({Key key}) : super(key: key);
+class Products4 extends StatefulWidget {
+  const Products4({Key key}) : super(key: key);
 
   @override
-  _PaymentMethodState createState() => _PaymentMethodState();
+  _Products4State createState() => _Products4State();
 }
 
-class _PaymentMethodState extends State<PaymentMethod> {
-  final buttonColor = Colors.white;
-  final resim =
-      "https://i4.hurimg.com/i/hurriyet/75/750x422/5eca5464d3806c225429d41f.jpg";
+class _Products4State extends State<Products4> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        /* bottomNavigationBar: MySecondBottomNavbar(
-          onpressedNavbar: FirstPageUi(),
-        ),*/
-        bottomNavigationBar: MyFirstBottomNavbar(),
-        body: DecoratedBox(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(resim), fit: BoxFit.cover)),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(LocaleKeys.paymenttype_pagetitle.locale,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
-                buttonGroup(context)
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Padding buttonGroup(BuildContext context) {
-    return Padding(
-      padding: context.paddingAllow,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+      bottomNavigationBar: MyFirstBottomNavbar(),
+      body: Row(
         children: [
-          ExpandedButton(
-            onpressed: Products(),
-            icon: Icons.payment,
-            buttonColor: buttonColor,
-            textPosition: LocaleKeys.paymenttype_pagebuttonleft.locale,
-          ),
-          SizedBox(
-            width: context.dynamicWidth(0.01),
-          ),
-          ExpandedButton(
-              onpressed: Products(),
-              buttonColor: buttonColor,
-              textPosition: LocaleKeys.paymenttype_pagebuttonmid.locale,
-              icon: Icons.credit_card),
-          SizedBox(
-            width: context.dynamicWidth(0.01),
-          ),
-          ExpandedButton(
-              onpressed: Products(),
-              buttonColor: buttonColor,
-              textPosition: LocaleKeys.paymenttype_pagebuttonright.locale,
-              icon: Icons.qr_code),
+          Categories(),
+          RightSide(),
         ],
       ),
     );
@@ -100,7 +47,7 @@ class MyFirstBottomNavbar extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => FirstPageUi()));
+                    MaterialPageRoute(builder: (context) => PaymentMethod()));
               }),
           IconButton(
               icon: Icon(
@@ -165,12 +112,7 @@ class MyFirstBottomNavbar extends StatelessWidget {
                   },
                 );
               }),
-          IconButton(
-              icon: Icon(
-                Icons.fullscreen_exit,
-                color: Colors.grey,
-              ),
-              onPressed: () {}),
+          IconButton(icon: Icon(Icons.fullscreen_exit), onPressed: null),
           IconButton(icon: Icon(Icons.settings), onPressed: null),
           IconButton(
               icon: Icon(
@@ -181,6 +123,60 @@ class MyFirstBottomNavbar extends StatelessWidget {
                 exit(0);
               }),
         ],
+      ),
+    );
+  }
+}
+
+class RightSide extends StatefulWidget {
+  const RightSide({Key key}) : super(key: key);
+
+  @override
+  _RightSideState createState() => _RightSideState();
+}
+
+class _RightSideState extends State<RightSide> {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: context.dynamicWidth(0.6),
+      child: Container(
+        child: Center(
+          child: FutureBuilder(
+              future: DefaultAssetBundle.of(context)
+                  .loadString('assets/foods/desserts.json'),
+              builder: (context, snapshot) {
+                var mydata = jsonDecode(snapshot.data.toString());
+
+                return GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3, childAspectRatio: 1.5 / 2),
+                    itemCount: mydata == null ? 0 : mydata.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.white,
+                          ),
+                          onPressed: () {},
+                          child: Card(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Image.network(
+                                  "" + mydata[index]['photo'],
+                                  height: 200,
+                                ),
+                                Center(child: Text("" + mydata[index]['name'])),
+                                Center(child: Text("" + mydata[index]['price']))
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    });
+              }),
+        ),
       ),
     );
   }

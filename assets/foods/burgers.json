@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Cheese Burger",
+        "photo": "http://golcukvizyongazetesi.com/wp-content/uploads/2018/02/IMG_5586.jpg",
+        "price": "18.00",
+        "category": "Burgers"
+    },
+    {
+        "name": "Burger",
+        "photo": "https://www.foodtime.com.tr/images/haberler/dunya_hamburger_gunu_izgara_atesiyle_kutlanacak_h5870.jpg",
+        "price": "13.00",
+        "category": "Burgers"
+    },
+    {
+        "name": "Big Mac",
+        "photo": "https://i.sozcu.com.tr/wp-content/uploads/2016/12/ph32hp11hp312hp3.jpg",
+        "price": "15.00",
+        "category": "Burgers"
+    }
+]

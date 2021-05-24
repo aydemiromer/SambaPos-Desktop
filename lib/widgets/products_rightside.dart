@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 
 //Yapılacaklar
 // Listelemin ürünlerin kategorisine göre gelmesi gerekiyor!
-class RightSide extends StatelessWidget {
+class RightSide extends StatefulWidget {
   const RightSide({Key key}) : super(key: key);
 
+  @override
+  _RightSideState createState() => _RightSideState();
+}
+
+class _RightSideState extends State<RightSide> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,7 +26,7 @@ class RightSide extends StatelessWidget {
 
                 return GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, childAspectRatio: 3 / 2),
+                        crossAxisCount: 3, childAspectRatio: 1.5 / 2),
                     itemCount: mydata == null ? 0 : mydata.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
