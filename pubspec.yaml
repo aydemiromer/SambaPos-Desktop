@@ -33,6 +33,7 @@ dependencies:
   auto_size_text: ^2.1.0
   cached_network_image: ^2.4.0
   http: ^0.12.2
+  shared_preferences: ^0.5.3+4 
   
 
 dev_dependencies:

@@ -12,6 +12,10 @@ class RightSide extends StatefulWidget {
 }
 
 class _RightSideState extends State<RightSide> {
+  bool checkBoxValue = false;
+  bool checkBoxCola = false;
+  bool checkBoxFries = false;
+  bool checkBoxOnion = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,7 +30,7 @@ class _RightSideState extends State<RightSide> {
 
                 return GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3, childAspectRatio: 1.5 / 2),
+                        crossAxisCount: 3, childAspectRatio: 1.5 / 1.6),
                     itemCount: mydata == null ? 0 : mydata.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
@@ -34,7 +38,120 @@ class _RightSideState extends State<RightSide> {
                           style: ElevatedButton.styleFrom(
                             primary: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return StatefulBuilder(
+                                      builder: (context, setState) {
+                                    return AlertDialog(
+                                      title: Text(
+                                        "" + mydata[index]['name'],
+                                      ),
+                                      content: Form(
+                                          child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Image.network(
+                                            "" + mydata[index]['photo'],
+                                            height: 200,
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text("Price"),
+                                          SizedBox(
+                                            height: 10,
+                                            width: 200,
+                                            child: Divider(
+                                              thickness: 1,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Normal     " +
+                                                mydata[index]['price'],
+                                            style:
+                                                TextStyle(color: Colors.green),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text("Extra Cheese"),
+                                              Checkbox(
+                                                  value: checkBoxValue,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxValue = value;
+                                                    });
+                                                  }),
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text("Cola"),
+                                              Checkbox(
+                                                  value: checkBoxCola,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxCola = value;
+                                                    });
+                                                  }),
+                                              Text("Fanta"),
+                                              Checkbox(
+                                                  value: checkBoxCola,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxCola = value;
+                                                    });
+                                                  }),
+                                              Text("Sprite"),
+                                              Checkbox(
+                                                  value: checkBoxCola,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxCola = value;
+                                                    });
+                                                  }),
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text("French fries +1"),
+                                              Checkbox(
+                                                  value: checkBoxFries,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxFries = value;
+                                                    });
+                                                  }),
+                                              Text("Onion Rings"),
+                                              Checkbox(
+                                                  value: checkBoxOnion,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxOnion = value;
+                                                    });
+                                                  }),
+                                            ],
+                                          ),
+                                        ],
+                                      )),
+                                      actions: [
+                                        IconButton(
+                                            icon: Icon(
+                                              Icons.shopping_cart,
+                                              color: Colors.green,
+                                            ),
+                                            onPressed: null)
+                                      ],
+                                    );
+                                  });
+                                });
+                          },
                           child: Card(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -43,7 +160,11 @@ class _RightSideState extends State<RightSide> {
                                   "" + mydata[index]['photo'],
                                   height: 200,
                                 ),
-                                Center(child: Text("" + mydata[index]['name'])),
+                                Center(
+                                    child: Text(
+                                  "" + mydata[index]['name'],
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )),
                                 Center(child: Text("" + mydata[index]['price']))
                               ],
                             ),

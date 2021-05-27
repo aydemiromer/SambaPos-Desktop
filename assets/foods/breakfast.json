@@ -16,5 +16,77 @@
         "photo": "http://www.ugurlulezzetler.com/content/tarifler/1368/828973135_bcS6fh2FKusnRCULAZqCabkHNSDPC3y7RfotlmCo9r6YB.jpg",
         "price": "10.00",
         "category": "Breakfast"
+    },
+    {
+        "name": "Bagel",
+        "photo": "https://cdn.yemek.com/mnresize/940/940/uploads/2017/11/citir-citir-ev-yapimi-sokak-simidi-tarifi.jpg",
+        "price": "5.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Butter",
+        "photo": "https://www.degisiktarifler.com/wp-content/uploads/2021/02/Sahanda-yumurta-tarifi-nasil-yapilir.jpg",
+        "price": "8.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Sausage",
+        "photo": "http://www.ugurlulezzetler.com/content/tarifler/1368/828973135_bcS6fh2FKusnRCULAZqCabkHNSDPC3y7RfotlmCo9r6YB.jpg",
+        "price": "10.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Bagel",
+        "photo": "https://cdn.yemek.com/mnresize/940/940/uploads/2017/11/citir-citir-ev-yapimi-sokak-simidi-tarifi.jpg",
+        "price": "5.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Butter",
+        "photo": "https://www.degisiktarifler.com/wp-content/uploads/2021/02/Sahanda-yumurta-tarifi-nasil-yapilir.jpg",
+        "price": "8.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Sausage",
+        "photo": "http://www.ugurlulezzetler.com/content/tarifler/1368/828973135_bcS6fh2FKusnRCULAZqCabkHNSDPC3y7RfotlmCo9r6YB.jpg",
+        "price": "10.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Bagel",
+        "photo": "https://cdn.yemek.com/mnresize/940/940/uploads/2017/11/citir-citir-ev-yapimi-sokak-simidi-tarifi.jpg",
+        "price": "5.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Butter",
+        "photo": "https://www.degisiktarifler.com/wp-content/uploads/2021/02/Sahanda-yumurta-tarifi-nasil-yapilir.jpg",
+        "price": "8.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Sausage",
+        "photo": "http://www.ugurlulezzetler.com/content/tarifler/1368/828973135_bcS6fh2FKusnRCULAZqCabkHNSDPC3y7RfotlmCo9r6YB.jpg",
+        "price": "10.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Bagel",
+        "photo": "https://cdn.yemek.com/mnresize/940/940/uploads/2017/11/citir-citir-ev-yapimi-sokak-simidi-tarifi.jpg",
+        "price": "5.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Butter",
+        "photo": "https://www.degisiktarifler.com/wp-content/uploads/2021/02/Sahanda-yumurta-tarifi-nasil-yapilir.jpg",
+        "price": "8.00",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Egg with Sausage",
+        "photo": "http://www.ugurlulezzetler.com/content/tarifler/1368/828973135_bcS6fh2FKusnRCULAZqCabkHNSDPC3y7RfotlmCo9r6YB.jpg",
+        "price": "10.00",
+        "category": "Breakfast"
     }
 ]

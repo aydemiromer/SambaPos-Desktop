@@ -5,7 +5,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:sambapos_desktop/view/payment_method.dart';
 import 'package:sambapos_desktop/view/view.dart';
 import 'package:sambapos_desktop/widgets/categories.dart';
-import 'package:sambapos_desktop/widgets/products_leftside.dart';
 import 'dart:convert';
 import 'package:sambapos_desktop/model/contextExtension.dart';
 
@@ -137,6 +136,12 @@ class RightSide extends StatefulWidget {
 }
 
 class _RightSideState extends State<RightSide> {
+  bool checkBoxValue = false;
+  bool checkBoxCola = false;
+  bool checkBoxFanta = false;
+  bool checkBoxSprite = false;
+  bool checkBoxPickle = false;
+  bool checkBoxFries = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -151,7 +156,7 @@ class _RightSideState extends State<RightSide> {
 
                 return GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3, childAspectRatio: 1.5 / 2),
+                        crossAxisCount: 3, childAspectRatio: 1.5 / 1.6),
                     itemCount: mydata == null ? 0 : mydata.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
@@ -159,7 +164,155 @@ class _RightSideState extends State<RightSide> {
                           style: ElevatedButton.styleFrom(
                             primary: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return StatefulBuilder(
+                                      builder: (context, setState) {
+                                    return AlertDialog(
+                                      title: Text(
+                                        "" + mydata[index]['name'],
+                                        
+                                      ),
+                                      content: Form(
+                                          child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Image.network(
+                                            "" + mydata[index]['photo'],
+                                            height: 200,
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            "Price",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                            width: 200,
+                                            child: Divider(
+                                              thickness: 1,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Normal     " +
+                                                mydata[index]['price'],
+                                            style: TextStyle(
+                                                color: Colors.green,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(
+                                            "Extra",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(
+                                            height: 20,
+                                            width: 200,
+                                            child: Divider(
+                                              thickness: 1,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text("Cheese"),
+                                              Checkbox(
+                                                  value: checkBoxValue,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxValue = value;
+                                                    });
+                                                  }),
+                                              Text("Pickle"),
+                                              Checkbox(
+                                                  value: checkBoxPickle,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxPickle = value;
+                                                    });
+                                                  }),
+                                            ],
+                                          ),
+                                          Text(
+                                            "Drink",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(
+                                            height: 20,
+                                            width: 200,
+                                            child: Divider(
+                                              thickness: 1,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text("Cola"),
+                                              Checkbox(
+                                                  value: checkBoxCola,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxCola = value;
+                                                    });
+                                                  }),
+                                              Text("Fanta"),
+                                              Checkbox(
+                                                  value: checkBoxFanta,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxFanta = value;
+                                                    });
+                                                  }),
+                                              Text("Sprite"),
+                                              Checkbox(
+                                                  value: checkBoxSprite,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxSprite = value;
+                                                    });
+                                                  }),
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text("French fries"),
+                                              Checkbox(
+                                                  value: checkBoxFries,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxFries = value;
+                                                    });
+                                                  }),
+                                            ],
+                                          ),
+                                        ],
+                                      )),
+                                      actions: [
+                                        IconButton(
+                                            icon: Icon(
+                                              Icons.shopping_cart,
+                                              color: Colors.green,
+                                            ),
+                                            onPressed: null)
+                                      ],
+                                    );
+                                  });
+                                });
+                          },
                           child: Card(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,

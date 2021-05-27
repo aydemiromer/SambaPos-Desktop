@@ -136,6 +136,9 @@ class RightSide extends StatefulWidget {
 }
 
 class _RightSideState extends State<RightSide> {
+  bool checkBoxValue = false;
+  bool value;
+  Function onChanged;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -150,7 +153,7 @@ class _RightSideState extends State<RightSide> {
 
                 return GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3, childAspectRatio: 1.8 / 2),
+                        crossAxisCount: 3, childAspectRatio: 1.5 / 1.6),
                     itemCount: mydata == null ? 0 : mydata.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
@@ -162,10 +165,13 @@ class _RightSideState extends State<RightSide> {
                             showDialog(
                                 context: context,
                                 builder: (context) {
-                                  return AlertDialog(
-                                    title: Text("" + mydata[index]['name']),
-                                    actions: [
-                                      Column(
+                                  return StatefulBuilder(
+                                      builder: (context, setState) {
+                                    return AlertDialog(
+                                      title: Text("" + mydata[index]['name']),
+                                      content: Form(
+                                          child: Column(
+                                        mainAxisSize: MainAxisSize.min,
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         crossAxisAlignment:
@@ -193,10 +199,30 @@ class _RightSideState extends State<RightSide> {
                                             style:
                                                 TextStyle(color: Colors.green),
                                           ),
+                                          Row(
+                                            children: [
+                                              Text("Cheese"),
+                                              Checkbox(
+                                                  value: checkBoxValue,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkBoxValue = value;
+                                                    });
+                                                  }),
+                                            ],
+                                          ),
                                         ],
-                                      )
-                                    ],
-                                  );
+                                      )),
+                                      actions: [
+                                        IconButton(
+                                            icon: Icon(
+                                              Icons.shopping_cart,
+                                              color: Colors.green,
+                                            ),
+                                            onPressed: null)
+                                      ],
+                                    );
+                                  });
                                 });
                           },
                           child: Card(
@@ -215,7 +241,15 @@ class _RightSideState extends State<RightSide> {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 )),
-                                Center(child: Text("" + mydata[index]['price']))
+                                Center(
+                                    child: Text("" + mydata[index]['price'])),
+                                /*Checkbox(
+                                    value: checkBoxValue,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        checkBoxValue = value;
+                                      });
+                                    })*/
                               ],
                             ),
                           ),

@@ -5,7 +5,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:sambapos_desktop/view/payment_method.dart';
 import 'package:sambapos_desktop/view/view.dart';
 import 'package:sambapos_desktop/widgets/categories.dart';
-import 'package:sambapos_desktop/widgets/products_leftside.dart';
 import 'package:sambapos_desktop/widgets/products_rightside.dart';
 
 class Products extends StatefulWidget {
